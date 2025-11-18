@@ -1,0 +1,41 @@
+CNN Model Architecture Visualization
+=====================================
+
+Input Layer: (28, 28, 1)
+    ↓
+Conv2D Layer: 32 filters, (3,3) kernel, ReLU activation
+    Output: (26, 26, 32)
+    Parameters: 320
+    Calculation: (3×3×1 + 1) × 32 = 320
+    ↓
+MaxPooling2D Layer: (2,2) pool size
+    Output: (13, 13, 32)
+    Parameters: 0
+    ↓
+Flatten Layer: Converts 2D to 1D
+    Output: 5408 (13×13×32)
+    Parameters: 0
+    ↓
+Dense Layer: 128 units, ReLU activation
+    Output: (128,)
+    Parameters: 692,352
+    Calculation: (5408 + 1) × 128 = 692,352
+    ↓
+Output Layer: 10 units, Softmax activation
+    Output: (10,)
+    Parameters: 1,290
+    Calculation: (128 + 1) × 10 = 1,290
+
+=====================================
+TOTAL PARAMETERS: 693,962
+=====================================
+
+Parameter Breakdown by Layer:
+- Conv2D: 320 parameters
+- MaxPooling2D: 0 parameters
+- Flatten: 0 parameters
+- Dense (128 units): 692,352 parameters
+- Dense (10 units): 1,290 parameters
+
+The majority of parameters (99.8%) are in the first Dense layer,
+which connects the flattened convolutional features to the hidden layer.
